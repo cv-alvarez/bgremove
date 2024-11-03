@@ -2,20 +2,53 @@
   height: auto !important;
   max-width: 100% !important;
   object-fit: contain;
+  border: 3px solid #1976d2;
+  box-sizing: border-box;
+  border-radius: 10px;
+  cursor: pointer;
 }
-
 .removedbgonload {
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 .main_container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
-  gap: 50px;
-}
+  flex-direction: row;
+  position: relative;
 
+  gap: 50px;
+  margin-top: 50px;
+}
+.spot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1100px; /* Tamaño de la mancha */
+  height: 700px; /* Tamaño de la mancha */
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(25, 118, 210, 0.2),
+      transparent 70%
+    ),
+    /* Azul cobalto */
+      radial-gradient(
+        circle at 80% 40%,
+        rgba(41, 128, 185, 0.2),
+        transparent 70%
+      ),
+    /* Azul ligeramente más claro */
+      radial-gradient(
+        circle at 50% 70%,
+        rgba(52, 152, 219, 0.2),
+        transparent 70%
+      ); /* Azul celeste */
+  filter: blur(60px); /* Desenfoque */
+  border-radius: 50%; /* Para hacerla circular */
+  transform: translate(-50%, -50%); /* Centrar la mancha */
+  animation: expand 3s infinite; /* Animación de expansión */
+}
 .inputMinimalista {
   /* Ancho completo */
   padding: 12px 16px; /* Espaciado interno */
@@ -44,4 +77,28 @@
 
 .inputMinimalista:focus::placeholder {
   opacity: 0.5; /* Desvanece el placeholder al enfocar */
+}
+
+.skeleton {
+  max-width: 100% !important;
+  object-fit: contain;
+}
+
+.bgColorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Suaviza la transición a 0.3 segundos */
+}
+
+.closeIcon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+.p_hover_click {
+  position: absolute;
 }
